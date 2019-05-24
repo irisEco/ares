@@ -1,0 +1,6 @@
+export const SEARCH_FOCUSED = "header/SearchFocused"
+export const SEARCH_BLUR = "header/SearchBlur"
+export  const GET_SEARCH_HOT_LIST = "header/getSearchHotList"
+export const MOUSE_ENTERED = "header/mouse_entered"
+export const MOUSE_OUT = "header/mouse_out"
+export const GET_DEFAULT_PAGE = "header/get_default_page"
