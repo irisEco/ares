@@ -1,0 +1,5 @@
+export const  GET_TITLE = "matter/get_title"
+export const GET_CONTENT = "matter/get_conent"
+export const GET_COMMENTS = "matter/get_comments"
+export const GET_DATAS = "matter/get_datas"
+export const SET_UNFOLD = "matter/set_unfold"

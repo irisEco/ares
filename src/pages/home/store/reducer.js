@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable'
-import Liushi from '../statics/liushi.png';
 import {GET_HOME_LIST,BACK_TO_TOP,GET_NOTES} from '../store/actionType'
 
 
