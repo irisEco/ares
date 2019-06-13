@@ -1,6 +1,5 @@
 import * as actionType from './actionType'
 import { fromJS } from 'immutable'
-import { checkServerIdentity } from 'tls';
 
 const defaultState = fromJS({
     focus: false,
