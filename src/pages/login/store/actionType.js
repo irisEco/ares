@@ -1,1 +1,1 @@
-export const LOGIN = "login/login"
+export const LOGIN = 'login/login'

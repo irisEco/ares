@@ -1,15 +1,15 @@
 import {fromJS} from 'immutable'
-import {actionType} from './actionType.js'
+import {actionType} from '../store'
 
 const defaultState = fromJS({
-    validation: true,
+    validate: false,
     userName:'chen',
     userId:2
 })
 export default (state = defaultState,action)=>{
     switch(action.type){
         case actionType.LOGIN:
-            return  state;
+            return  state.set('validate',action.validate);
             default:
             return state;
     }

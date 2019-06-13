@@ -5,6 +5,7 @@ import {
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreater } from './store'
+import {Redirect} from 'react-router-dom'
 
 
 class Login extends PureComponent {
@@ -12,7 +13,8 @@ class Login extends PureComponent {
 
 
     render() {
-        const { focus, page, handleSearch, handelBlur, searchHotList } = this.props
+        const { handelLogin,status } = this.props
+        if(!status){
         return (
             <LoginWraper>
                 <Img></Img>
@@ -32,14 +34,14 @@ class Login extends PureComponent {
 
 
                                 <div className="input-prepend restyle js-normal">
-                                    <input placeholder="手机号或邮箱" type="text" name="session[email_or_mobile_number]" id="session_email_or_mobile_number" />
+                                    <input placeholder="手机号或邮箱" type="text"  id="session_email_or_mobile_number" ref={(Input)=>{this.user = Input} }/>
                                     <i className="iconfont ic-user"></i>
                                 </div>
 
 
 
                                 <div className="input-prepend">
-                                    <input placeholder="密码" type="password" name="session[password]" id="session_password" />
+                                    <input placeholder="密码" type="password" id="session_password" ref={(Input)=>{this.pass = Input}}/>
                                     <i className="iconfont ic-password"></i>
                                 </div>
                                 <input value="false" type="hidden" name="session[oversea]" id="session_oversea" />
@@ -61,7 +63,7 @@ class Login extends PureComponent {
                                         <li><a target="_blank" href="/p/498a9fa7da08">无法用 Google 帐号登录</a></li>
                                     </ul>
                                 </div>
-                                <button className="sign-in-button" id="sign-in-form-submit-btn" type="button">
+                                <button className="sign-in-button" id="sign-in-form-submit-btn" type="button" onClick={()=>handelLogin(this.user,this.pass)}>
                                     <span id="sign-in-loading"></span>
                                     登录
                                 </button>
@@ -88,6 +90,11 @@ class Login extends PureComponent {
                 </Frame>
             </LoginWraper>
         )
+        }else{
+           return(
+           <Redirect to="/"></Redirect>
+           ) 
+        }
     }
 
 
@@ -100,11 +107,16 @@ class Login extends PureComponent {
 
 const mapStateToProps = (state) => {
     return {
+        status:state.get('login').get('validate')
     }
 }
 const mapDispatchToProps = (dispatch) => {
 
     return {
+        handelLogin(user,pass){
+            console.log(user.value,pass.value)
+            dispatch(actionCreater.handelLogin(user.value,pass.value))
+        }
 
     }
 }

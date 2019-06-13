@@ -8,7 +8,7 @@ import { GlobalStyle } from './style'
 import { GlobalFont } from './statics/icon-font/iconfont'
 import { Provider } from 'react-redux'
 import store from './store'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route,withRouter } from 'react-router-dom'
 
 class App extends Component {
   render() {
@@ -18,12 +18,13 @@ class App extends Component {
           <GlobalStyle />
           <GlobalFont />
           <BrowserRouter>
-          <Route path='/login' exact component={Login}></Route>
           </BrowserRouter>
         </div>
         <BrowserRouter>
           <div>
+          <Route path='/login' exact component={Login}></Route>
           <Header />
+            
             <Route path='/' exact component={Home}></Route>
             <Route path='/note/:id' exact component={Note}></Route>
           </div>

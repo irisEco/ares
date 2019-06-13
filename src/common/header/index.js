@@ -54,7 +54,7 @@ class Header extends PureComponent {
 
 
     render() {
-        const { focus, page, handleSearch, handelBlur, searchHotList } = this.props
+        const { focus, page, handleSearch, handelBlur, searchHotList,login,user } = this.props
         return (
             <HeaderWrapper>
                 <HeaderLogo href='/' />
@@ -66,9 +66,9 @@ class Header extends PureComponent {
                         <i className="iconfont">&#xe638;</i>
                         &nbsp;下载APP</NavItem>
                     <NavItem className="right">
-                        <Link to='/login'>
-                        登录
-                        </Link>
+                        {
+                            login&&user? <Link to='/login_out'>{user}</Link> : <Link to='/login'>登录</Link>
+                        }
                         
                         </NavItem>
                     <NavItem className="right">
@@ -119,7 +119,9 @@ const mapStateToProps = (state) => {
         mouseEntered: state.get("header").get("mouseEntered"),
         page: state.get("header").get("page"),
         totalPage: state.get("header").get("totalPage"),
-        rotate: state.get("header").get("rotate")
+        rotate: state.get("header").get("rotate"),
+        login:state.get("login").get('validate'),
+        user:state.get('login').get('userName'),
     }
 }
 const mapDispatchToProps = (dispatch) => {
