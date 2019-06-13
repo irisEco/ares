@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 class NoteDetail extends PureComponent{
     render(){
         const {title,content} = this.props
-        console.log(this.props)
+        // console.log(this.props)
         return(
             <div>
             <Header className="title">
@@ -35,7 +35,7 @@ class NoteDetail extends PureComponent{
 
 }
 const mapStateToProps = (state) => {
-    console.log('state: '+state.get("matter").get("title"))
+    // console.log('state: '+state.get("matter").get("title"))
     return {
         title: state.get('matter').get('title'),
         content: state.get('matter').get('content'),

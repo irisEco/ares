@@ -38,7 +38,6 @@ export const mouseOut = () => ({
 export const getSearchHotList = (page) => {
   return (dispatch) => {
     axios.get('./api/searchHotList.json').then((res) => {
-      // console.log(res);
       const data = res.data;
       dispatch(handleSearchHotList(data, page))
     }).catch(() => {

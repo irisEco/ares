@@ -66,7 +66,7 @@ class NavLinkTop extends PureComponent {
                         &nbsp;换一批</ReAuthorsHeader>
                     <ReAuthorsBody>
                         {list}
-                        <ReAuthorsFoot ><Link   to="/note">查看全部 ></Link></ReAuthorsFoot>
+                        <ReAuthorsFoot ><Link   to="/note/">查看全部 ></Link></ReAuthorsFoot>
                     </ReAuthorsBody>
                 </ReAuthorsWrapper>
                 <ScrollButton className= { backToTop? "":"hide"} onClick={this.rollbackTop} >

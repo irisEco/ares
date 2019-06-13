@@ -8,15 +8,16 @@ import {
 } from './style';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
-import { actionCreater } from '../header/store'
+import { actionCreater } from './store'
+import {Link} from 'react-router-dom'
 
 
 class Header extends PureComponent {
 
 
     SearchFrame() {
-        const { searchHotOther, focus, page, totalPage, searchHotList, mouseEntered, mouseEnter, mouseOut,rotate } = this.props;
-        console.log(rotate);
+        const { searchHotOther, focus, page, totalPage, searchHotList, mouseEntered, mouseEnter, mouseOut, rotate } = this.props;
+        console.log(this.props);
         const hotList = searchHotList.toJS();
         const fixHotList = [];
         for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -36,10 +37,10 @@ class Header extends PureComponent {
                         <SearchInfoHeader>热门搜索</SearchInfoHeader>
                         <SearchInfoHeader
                             className="in-a-batch"
-                            onClick={() => { searchHotOther(page, totalPage,rotate) }}
-                            rotate={rotate? 1 : 0}
+                            onClick={() => { searchHotOther(page, totalPage, rotate) }}
+                            rotate={rotate ? 1 : 0}
                         >
-                            <i  className="iconfont load">&#xe688;</i>
+                            <i className="iconfont load">&#xe688;</i>
                             &nbsp;换一批
                         </SearchInfoHeader>
                         <SearchInfoBody>
@@ -53,7 +54,7 @@ class Header extends PureComponent {
 
 
     render() {
-        const { focus, page, handleSearch, handelBlur,searchHotList } = this.props
+        const { focus, page, handleSearch, handelBlur, searchHotList } = this.props
         return (
             <HeaderWrapper>
                 <HeaderLogo href='/' />
@@ -64,7 +65,12 @@ class Header extends PureComponent {
                     <NavItem className="left">
                         <i className="iconfont">&#xe638;</i>
                         &nbsp;下载APP</NavItem>
-                    <NavItem className="right">登录</NavItem>
+                    <NavItem className="right">
+                        <Link to='/login'>
+                        登录
+                        </Link>
+                        
+                        </NavItem>
                     <NavItem className="right">
                         <i className="iconfont">&#xe609;</i></NavItem>
                     <NavItem className="right">
@@ -77,7 +83,7 @@ class Header extends PureComponent {
                             classNames="slide"
                         >
                             <NavSearch className={focus ? "focused" : ""}
-                                onFocus={() => { handleSearch(page,searchHotList) }}
+                                onFocus={() => { handleSearch(page, searchHotList) }}
                                 onBlur={handelBlur}
                             ></NavSearch>
                         </CSSTransition>
@@ -120,9 +126,10 @@ const mapDispatchToProps = (dispatch) => {
 
     return {
         //点击搜索框,获取热门搜索
-        handleSearch(page,searchHotList) {
+        handleSearch(page, searchHotList) {
+            console.log("ok")
             dispatch(actionCreater.handelSearchFocused())
-            (searchHotList.size ===0)&& dispatch(actionCreater.getSearchHotList(page));
+            dispatch(actionCreater.getSearchHotList(page));
         },
         //失去搜索框焦点
         handelBlur() {
@@ -137,7 +144,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(actionCreater.mouseOut());
         },
         //鼠标点击热门搜索 换一批
-        searchHotOther(page, totalPage,rotate) {
+        searchHotOther(page, totalPage, rotate) {
 
             // console.log(rotate);
             // let ro = 0
@@ -148,9 +155,9 @@ const mapDispatchToProps = (dispatch) => {
             // }
             // console.log(rorate,typeof rorate);
             if (page < totalPage) {
-                dispatch(actionCreater.getDefaultPage(page + 1,rotate))
+                dispatch(actionCreater.getDefaultPage(page + 1, rotate))
             } else {
-                dispatch(actionCreater.getDefaultPage(page = 1,rotate));
+                dispatch(actionCreater.getDefaultPage(page = 1, rotate));
             }
 
         }

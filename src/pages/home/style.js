@@ -18,6 +18,7 @@ export const Banner = styled.div`
    content:"";
    overflow: hidden;
    margin-top: 50px;
+   margin-bottom:50px;
    border-radius: 4px;
 `;
 //轮播图片
@@ -31,6 +32,7 @@ export const BannerImg = styled.div`
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
+
   
 `;
 //侧边导航 navbar.js
@@ -144,8 +146,8 @@ export const ReAuthorsP = styled.p`
     margin:0px;
 `;
 export const ReAuthorsAdd = styled.a.attrs(
-  props=>({
-    href:props.href || "#"
+  props => ({
+    href: props.href || "#"
   })
 )`
     float: right;
@@ -180,32 +182,31 @@ export const ReAuthorsFoot = styled.div`
 
 export const NoteWrapper = styled.div`
   width:623px;
-  margin-top:50px;
   line-height:28px; 
   border-radius:10px;
-  height:187px;
   a{
   cursor: pointer;
 }
 
 `;
-export const NoteHeader = styled.a`
+export const NoteHeader = styled.div`
     width:77%;
     margin: -7px 0 4px;
-    display: inherit;
     font-size: 18px;
     font-weight: 700;
-    line-height: 1.5
+    line-height: 1.5;
+    .noteList-link{
+    color: #333333;
+    text-decoration:none;
+    }
 `;
 export const NoteBody = styled.div`
 color: #999;
 `;
 export const NoteContent = styled.div`
     width:77%;
-    margin: 0 0 8px;
     font-size: 13px;
     line-height: 24px;
-    
 `;
 export const NoteImg = styled.div.attrs(
   props => ({ picture: props.src || "" })
@@ -216,7 +217,7 @@ export const NoteImg = styled.div.attrs(
   width:150px;
   padding-top:15%;
   background-size:contain;
-  top:-120px;
+  top:-90px;
   right:-490px;
   border-radius:5px;
 `;

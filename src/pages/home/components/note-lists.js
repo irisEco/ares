@@ -10,6 +10,7 @@ import { actionCreater } from '../store'
 import store from '../../../store'
 import axios from 'axios'
 import { GET_HOME_LIST } from '../store/actionType'
+import {Link} from 'react-router-dom'
 
 
 class NoteLists extends PureComponent {
@@ -40,7 +41,7 @@ class NoteLists extends PureComponent {
         const note = list.map((note) =>
             <NoteWrapper key={note.id}>
                 <NoteHeader>
-                    {note.title}
+                    <Link to={'/note/'+note.id} activeStyle={{color: 'red'}} className="noteList-link">{note.title}</Link>
                 </NoteHeader>
                 <NoteBody>
                     <NoteContent>

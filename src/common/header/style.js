@@ -38,6 +38,7 @@ export const NavItem = styled.div`
 line-height: 58px;
 font-size:17px;
 color:#333333;
+cursor: pointer;
 &.left{
     float:left;
     margin-right:50px;
@@ -90,7 +91,7 @@ export const NavSearch = styled.input.attrs({
 })`
    padding: 0 40px 0 20px;
     width: 240px;
-    height:38px;
+    height:37px;
     font-size: 14px;
     border:none;
     outline:none;
@@ -116,6 +117,7 @@ color:#8a8687;
 box-shadow:1px 1px 10px 1px #e2e0e2;
 border-radius:5px;
 background: white;
+z-index:100;
 `;
 
 export const SearchInfoTriangles = styled.div`
@@ -126,7 +128,7 @@ export const SearchInfoTriangles = styled.div`
     height:0;   
     border-width:0 10px 10px;
     border-style:solid;
-    z-index:100;
+    z-index:1000;
     border-color:transparent transparent #fff;/*透明 透明  灰*/
 `
 export const SearchInfoHeader = styled.div.attrs(
@@ -148,7 +150,7 @@ margin:20px 15px 10px 10px;
     transform:rotate(0deg);
     transition:all .5s ease-in;
     transform-origin:center center;
-    transform:${props => (props.rotate? `rotate(360deg)`:`rotate(0deg)`)};
+    transform:${props => (props.rotate ? `rotate(360deg)` : `rotate(0deg)`)};
     
 }
 &.in-a-batch:hover{
@@ -196,9 +198,15 @@ margin: 9px 5px 0 15px;
 padding:5px 25px 5px 25px;
 border-radius:20px;
 color:#ea6f5a;
+cursor: pointer;
 &.nav-right{
 color:white;
 background-color:#ea6f5a;
+}
+:hover{
+    background-color:#f9d2cb;
+    color:white;
+    border:1px solid white;
 }
 
 `;

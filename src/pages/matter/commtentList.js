@@ -16,7 +16,6 @@ class CommentLists extends PureComponent {
         const transcript = lists.map((list, index) => {
 
             const replyLen = list.reply.length
-            console.log(list.unfold, list.id)
             return (
                 <div id="comment-41208123" className="comment" key={list.id}>
                     <div>
@@ -153,7 +152,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleReply(flag, id, index) {
-            console.log({ flag, id, index })
             dispatch(actionCreater.SetUnfold(flag, id, index))
 
         }
