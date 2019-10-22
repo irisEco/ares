@@ -17,7 +17,7 @@ class Header extends PureComponent {
 
     SearchFrame() {
         const { searchHotOther, focus, page, totalPage, searchHotList, mouseEntered, mouseEnter, mouseOut, rotate } = this.props;
-        console.log(this.props);
+        // console.log(this.props);
         const hotList = searchHotList.toJS();
         const fixHotList = [];
         for (let i = (page - 1) * 10; i < page * 10; i++) {
@@ -55,6 +55,12 @@ class Header extends PureComponent {
 
     render() {
         const { focus, page, handleSearch, handelBlur, searchHotList,login,user } = this.props
+        console.log('test:')
+        console.log(this.props)
+
+
+        console.log('loaction: ')
+        // console.log(this.props.location.state)
         return (
             <HeaderWrapper>
                 <HeaderLogo href='/' />
@@ -66,8 +72,9 @@ class Header extends PureComponent {
                         <i className="iconfont">&#xe638;</i>
                         &nbsp;下载APP</NavItem>
                     <NavItem className="right">
-                        {
-                            login&&user? <Link to='/login_out'>{user}</Link> : <Link to='/login'>登录</Link>
+                        {/* this.props.history.location.pathname */}
+                        { 
+                            login&&user? <Link to='/login_out' className="a_right" >{user}</Link> : <Link  to={{pathname:'/login',state:{from:this.props.location.pathname}}}  className="a_right" >登录</Link>
                         }
                         
                         </NavItem>
@@ -92,10 +99,14 @@ class Header extends PureComponent {
 
                 </Nav>
                 <NavRight>
+                <Link to='/writer'>
                     <NavRightItem className="nav-right">
+                        
                         <i className="iconfont">&#xe616;</i>
                         写文章
+                    
                    </NavRightItem>
+                   </Link>
                     <NavRightItem >注册</NavRightItem>
                 </NavRight>
                 {this.SearchFrame()}
@@ -129,7 +140,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         //点击搜索框,获取热门搜索
         handleSearch(page, searchHotList) {
-            console.log("ok")
             dispatch(actionCreater.handelSearchFocused())
             dispatch(actionCreater.getSearchHotList(page));
         },

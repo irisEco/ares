@@ -49,7 +49,7 @@ export const Main = styled.div`
     border-bottom: 2px solid #ea6f5a;
 }
 .title a {
-    padding: 40px;
+    padding: 12%;
     color: #969696;
 }
 a {

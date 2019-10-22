@@ -2,6 +2,7 @@ import React,{PureComponent} from 'react';
 import {Header,Author,Info,NoteContent} from './style';
 import {reducer,actionCreater,actionType} from './store'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
 
 class NoteDetail extends PureComponent{
     render(){
@@ -47,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
     
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(NoteDetail);
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(NoteDetail));

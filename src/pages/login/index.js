@@ -5,7 +5,7 @@ import {
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { actionCreater } from './store'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 
 class Login extends PureComponent {
@@ -14,6 +14,14 @@ class Login extends PureComponent {
 
     render() {
         const { handelLogin,status } = this.props
+
+        //来源记录
+        let from;
+        if(this.props.location.state != null){
+ 
+            from = this.props.location.state.from
+        }
+        const urlTo = from ||'/';
         if(!status){
         return (
             <LoginWraper>
@@ -92,7 +100,7 @@ class Login extends PureComponent {
         )
         }else{
            return(
-           <Redirect to="/"></Redirect>
+           <Redirect to={urlTo}></Redirect>
            ) 
         }
     }

@@ -54,6 +54,21 @@ cursor: pointer;
 &.active{
     color:#ea6f5a;
 }
+
+.a_right{
+    float:right;
+    margin-right:50px;
+    font-size:15px;
+    color:#969696
+}
+.a_right:hover{
+    float:right;
+    margin-right:50px;
+    font-size:15px;
+    color:#969696;
+    text-decoration:none;
+}
+
 `;
 
 export const SearchWrapper = styled.div`

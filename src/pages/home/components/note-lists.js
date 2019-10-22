@@ -41,7 +41,7 @@ class NoteLists extends PureComponent {
         const note = list.map((note) =>
             <NoteWrapper key={note.id}>
                 <NoteHeader>
-                    <Link to={'/note/'+note.id} activeStyle={{color: 'red'}} className="noteList-link">{note.title}</Link>
+                    <Link to={'/note/'+note.id} activestyle={{color: 'red'}} className="noteList-link">{note.title}</Link>
                 </NoteHeader>
                 <NoteBody>
                     <NoteContent>
