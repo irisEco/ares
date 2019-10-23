@@ -8,6 +8,8 @@ class Writer extends PureComponent{
  
     render(){
         const status = this.props.status
+        console.log('this')
+        console.log(this.props)
         if(status){
         return(
          <WriterWraper>hello</WriterWraper>

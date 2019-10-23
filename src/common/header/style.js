@@ -177,7 +177,6 @@ margin:20px 15px 10px 10px;
 }
 `;
 
-console.log(SearchInfoHeader.attrs)
 
 export const SearchInfoBody = styled.div`
 margin-top:10px;
@@ -196,17 +195,27 @@ font-size:12px;
 
 `;
 
-export const NavRight = styled.div`
+export const NavWrite = styled.div`
 position:absolute;
 top:0;
-right:10px;
-margin:0;
+left:1300px;
 height:38px;
 font-size:15px;
+
+line-height:26px;
+border:1px solid #ea6f5a;
+margin: 9px 5px 0 15px;
+padding:5px 25px 5px 25px;
+border-radius:20px;
+color:white;
+background-color:#ea6f5a;
+cursor: pointer;
 `;
-export const NavRightItem = styled.div`
-float:right;
-margin-right:30px;
+export const NavRegister = styled.div`
+position:absolute;
+left:1200px;
+top:0;
+
 line-height:26px;
 border:1px solid #ea6f5a;
 margin: 9px 5px 0 15px;
@@ -214,10 +223,6 @@ padding:5px 25px 5px 25px;
 border-radius:20px;
 color:#ea6f5a;
 cursor: pointer;
-&.nav-right{
-color:white;
-background-color:#ea6f5a;
-}
 :hover{
     background-color:#f9d2cb;
     color:white;

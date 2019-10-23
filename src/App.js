@@ -9,8 +9,8 @@ import { GlobalStyle } from './style'
 import { GlobalFont } from './statics/icon-font/iconfont'
 import { Provider } from 'react-redux'
 import store from './store'
-import {BrowserRouter as Router,HashRouter,
-  Route, Switch,withRouter} from 'react-router-dom';
+import {BrowserRouter as Router,
+  Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -23,16 +23,13 @@ class App extends Component {
           </Router>
         </div>
         <Router>
-        {/* <HashRouter history={Router}> */}
-          <withRouter>
             <Switch>
             <Route path='/login' exact component={Login} ></Route>
           <Route path='/writer' exact component={Writer}></Route>
           <Header/>
             </Switch>
             <Route path='/' exact component={Home}></Route>
-            <Route path='/note/:id' exact component={Note}></Route>
-          </withRouter>
+            <Route path='/note/:id' exact component={Note}></Route>    
           </Router>
           {/* </HashRouter> */}
         <Footer></Footer>

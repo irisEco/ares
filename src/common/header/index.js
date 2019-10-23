@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import {
     HeaderWrapper, HeaderLogo, Nav, NavItem,
-    NavRight, NavSearch, NavRightItem, SearchWrapper,
+    NavRegister, NavSearch, NavWrite, SearchWrapper,
     SearchInfo, SearchInfoHeader, SearchInfoBody,
     SearchInfoItem, SearchInfoTriangles,
     SearchInfoframe,
@@ -98,17 +98,16 @@ class Header extends PureComponent {
                     </SearchWrapper>
 
                 </Nav>
-                <NavRight>
                 <Link to='/writer'>
-                    <NavRightItem className="nav-right">
+                    <NavWrite className="nav-right">
                         
                         <i className="iconfont">&#xe616;</i>
                         写文章
                     
-                   </NavRightItem>
+                   </NavWrite>
                    </Link>
-                    <NavRightItem >注册</NavRightItem>
-                </NavRight>
+                    <NavRegister >注册</NavRegister>
+                
                 {this.SearchFrame()}
             </HeaderWrapper>
 
