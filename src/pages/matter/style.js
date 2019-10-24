@@ -360,7 +360,9 @@ img {
 }
 `;
 
-export const MyCommentList = styled.div`
+export const MyCommentList = styled.div.attrs(
+   props=>({ display: props.display })
+)`
 
 .new-comment {
     position: relative;

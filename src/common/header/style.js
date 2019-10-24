@@ -178,7 +178,7 @@ margin:20px 15px 10px 10px;
     color:#333333;
 }
 `;
-console.log(styled.div.attrs)
+
 
 export const SearchInfoBody = styled.div`
 margin-top:10px;

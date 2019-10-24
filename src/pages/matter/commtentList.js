@@ -11,8 +11,6 @@ class CommentLists extends PureComponent {
         const comments = this.props.comments
         const handleReply = this.props.handleReply
         const lists = comments.toJS()
-        console.log('lists: ')
-        console.log(lists)
         const transcript = lists.map((list, index) => {
 
             const replyLen = list.reply.length

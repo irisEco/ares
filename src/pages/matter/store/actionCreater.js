@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_TITLE, GET_CONTENT, GET_COMMENTS, SET_UNFOLD, ADD_COMMENT } from '../store/actionType'
+import { GET_TITLE, GET_CONTENT, GET_COMMENTS, SET_UNFOLD, ADD_COMMENT, SHOW_COMMENT } from '../store/actionType'
 import { fromJS } from 'immutable'
 
 
@@ -23,4 +23,10 @@ export const AddComment = (time, comment) => ({
         unfold: true,
         reply: []
     }
+})
+
+export const CommentShow = (display) => ({
+    type: SHOW_COMMENT,
+    display: display,
+
 })

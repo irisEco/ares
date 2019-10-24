@@ -1,5 +1,5 @@
 import { fromJS, Map } from 'immutable'
-import { GET_TITLE, GET_COMMENTS, GET_CONTENT, SET_UNFOLD, ADD_COMMENT } from '../store/actionType'
+import { GET_TITLE, GET_COMMENTS, GET_CONTENT,SHOW_COMMENT, SET_UNFOLD, ADD_COMMENT } from '../store/actionType'
 import { Author } from '../style';
 const defaultState = fromJS({
     id: 1,
@@ -8,6 +8,7 @@ const defaultState = fromJS({
     enjoy: 29,
     onlyAuthor: "false",
     orderByTime: "true",
+    display:"none",
     closeComment: "false",
     comments: [{
         id: 1,
@@ -270,6 +271,8 @@ export default (state = defaultState, action) => {
         case ADD_COMMENT:
             action.comment.id = state.get('comments').size+1
             return state.set('comments',state.get('comments').concat(action.comment));
+        case SHOW_COMMENT:
+            return state.set("display",action.display)
         default:
             return state;
     }
