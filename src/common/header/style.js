@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
 import logoPic from '../../statics/jianshu.png'
 
 
@@ -146,8 +146,10 @@ export const SearchInfoTriangles = styled.div`
     z-index:1000;
     border-color:transparent transparent #fff;/*透明 透明  灰*/
 `
+
+
 export const SearchInfoHeader = styled.div.attrs(
-    props => ({ rotate: props.rotate || 0 })
+    props => ({ rotate: props.rotate||0 })
 )`
 display:inline-block;
 font-size:13px;
@@ -162,10 +164,10 @@ margin:20px 15px 10px 10px;
     float: left;
     font-size:12px;
     width:10px;
-    transform:rotate(0deg);
     transition:all .5s ease-in;
+    transform:rotate(${props => props.rotate}deg);
     transform-origin:center center;
-    transform:${props => (props.rotate ? `rotate(360deg)` : `rotate(0deg)`)};
+    
     
 }
 &.in-a-batch:hover{
@@ -176,7 +178,7 @@ margin:20px 15px 10px 10px;
     color:#333333;
 }
 `;
-
+console.log(styled.div.attrs)
 
 export const SearchInfoBody = styled.div`
 margin-top:10px;

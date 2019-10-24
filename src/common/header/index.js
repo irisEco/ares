@@ -38,7 +38,7 @@ class Header extends PureComponent {
                         <SearchInfoHeader
                             className="in-a-batch"
                             onClick={() => { searchHotOther(page, totalPage, rotate) }}
-                            rotate={rotate ? 1 : 0}
+                            rotate={this.props.rotate}
                         >
                             <i className="iconfont load">&#xe688;</i>
                             &nbsp;换一批
@@ -55,12 +55,6 @@ class Header extends PureComponent {
 
     render() {
         const { focus, page, handleSearch, handelBlur, searchHotList,login,user } = this.props
-        console.log('test:')
-        console.log(this.props)
-
-
-        console.log('loaction: ')
-        // console.log(this.props.location.state)
         return (
             <HeaderWrapper>
                 <HeaderLogo href='/' />
@@ -156,15 +150,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         //鼠标点击热门搜索 换一批
         searchHotOther(page, totalPage, rotate) {
-
-            // console.log(rotate);
-            // let ro = 0
-            // if(rorate === 0){
-            //      ro = rorate+360;
-            // }else{
-            //      ro = 0;
-            // }
-            // console.log(rorate,typeof rorate);
+            console.log(rotate,typeof rotate);
             if (page < totalPage) {
                 dispatch(actionCreater.getDefaultPage(page + 1, rotate))
             } else {

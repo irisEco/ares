@@ -14,7 +14,7 @@ export const getDefaultPage = (page,rotate) => {
     const action = {
       type: actionType.GET_DEFAULT_PAGE,
       page: page,
-      rotate: !rotate
+      rotate: rotate+360
     }
     dispatch(action)
   }

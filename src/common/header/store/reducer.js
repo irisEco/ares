@@ -7,7 +7,7 @@ const defaultState = fromJS({
     mouseEntered: false,
     page: 1,
     totalPage: 0,
-    rotate: true,
+    rotate: 0,
     // user:"chen",
     // userId:21,
     // userImg:"//upload.jianshu.io/users/upload_avatars/12343169/f4278717-a833-4217-8202-e61dd02d8d7b?imageMogr2/auto-orient/strip|imageView2/1/w/114/h/114/format/webp"
